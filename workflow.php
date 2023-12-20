@@ -398,6 +398,13 @@ class Workflow
         }
     }
 
+    public static function addItemIfMatchesIssue(Item $item)
+    {
+        if ($item->match(self::$query.' ')) {
+            self::$items[] = $item;
+        }
+    }
+
     public static function addItem(Item $item)
     {
         self::$items[] = $item;

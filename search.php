@@ -394,7 +394,7 @@ class Search
                 case '#':
                     $issues = Workflow::requestApi('/repos/'.$parts[0].'/issues?sort=updated&state=all');
                     foreach ($issues as $issue) {
-                        Workflow::addItemIfMatches(Item::create()
+                        Workflow::addItemIfMatchesIssue(Item::create()
                             ->title($issue->title)
                             ->comparator($parts[0].' #'.$issue->number.' '.$issue->title)
                             ->subtitle('#'.$issue->number)
